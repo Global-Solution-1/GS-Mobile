@@ -1,20 +1,112 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { DrawerContentScrollView, DrawerItem, createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import React from 'react';
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+
+import Header from './src/Components/Header';
+import TelaInicial from './src/Screens/TelaInicial';
+
+const Drawer = createDrawerNavigator();
+
+function CustomDrawerContent(props) {
+  const navigation = useNavigation();
+
+  return (
+    <DrawerContentScrollView {...props} style={styles.drawerContainer}>
+      <View style={styles.drawerHeader}>
+        <View style={styles.userIconContainer}>
+          <Ionicons name="person" size={48} color="white" />
+        </View>
+        <Text style={styles.drawerTitle}>Visitante</Text>
+      </View>
+
+      <DrawerItem
+        label="Início"
+        icon={() => (
+          <Ionicons name="flame-outline" size={24} color="#e23b10" style={{ marginRight: 10 }} />
+        )}
+        onPress={() => navigation.navigate('TelaInicial')}
+        labelStyle={styles.drawerLabel}
+        style={styles.drawerItem}
+      />
+    </DrawerContentScrollView>
+  );
+}
+
+function MainNavigator() {
+  return (
+    <Drawer.Navigator
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
+      screenOptions={{
+        drawerActiveBackgroundColor: '#f4b751',
+        drawerActiveTintColor: '#000',
+        drawerInactiveTintColor: '#ccc',
+        drawerStyle: {
+          backgroundColor: '#fff',
+          width: 280,
+        },
+        header: (props) => <Header {...props} />,
+      }}
+    >
+      <Drawer.Screen
+        name="TelaInicial"
+        component={TelaInicial}
+        options={{
+          title: 'Início',
+          drawerIcon: ({ color }) => (
+            <Ionicons name="home" size={24} color={color} />
+          )
+        }}
+      />
+    </Drawer.Navigator>
+  );
+}
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <MainNavigator />
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  drawerContainer: {
     backgroundColor: '#fff',
+  },
+  drawerHeader: {
+    padding: 20,
     alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#f4b751',
+  },
+  userIconContainer: {
+    backgroundColor: '#e23b10',
+    width: 80,
+    height: 80,
+    borderRadius: 40,
     justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: '#e23b10',
+    marginBottom: 10,
+  },
+  drawerTitle: {
+    fontSize: 22,
+    color: '#000',
+    marginTop: 10,
+    letterSpacing: 0.5,
+  },
+  drawerLabel: {
+    fontSize: 18,
+    color: '#000',
+    marginLeft: -16,
+    letterSpacing: 0.3,
+  },
+  drawerItem: {
+    marginVertical: 4,
+    borderRadius: 8,
+    backgroundColor: 'transparent',
   },
 });
