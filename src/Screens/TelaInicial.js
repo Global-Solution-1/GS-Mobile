@@ -25,48 +25,48 @@ export default function TelaInicio() {
         
         <View style={styles.problemGrid}>
           <View style={styles.problemCard}>
-            <FontAwesome5 name="kiwi-bird" size={20} color="#e23b10" />
+            <FontAwesome5 name="kiwi-bird" size={25} color="#6db913" />
             <Text style={styles.problemText}>Perda de biodiversidade</Text>
           </View>
           <View style={styles.problemCard}>
-            <MaterialIcons name="nature-people" size={20} color="#e23b10" />
+            <MaterialIcons name="nature-people" size={25} color="#6db913" />
             <Text style={styles.problemText}>Destruição de ecossistemas</Text>
           </View>
           <View style={styles.problemCard}>
-            <MaterialCommunityIcons name="home-alert" size={20} color="#e23b10" />
+            <MaterialCommunityIcons name="home-alert" size={25} color="#6db913" />
             <Text style={styles.problemText}>Riscos à vida humana</Text>
           </View>
           <View style={styles.problemCard}>
-            <Ionicons name="alert-circle-outline" size={20} color="#e23b10" />
+            <Ionicons name="alert-circle-outline" size={25} color="#6db913" />
             <Text style={styles.problemText}>Falta de alerta em tempo hábil</Text>
           </View>
         </View>
       </View>
 
-      <View style={[styles.section, { backgroundColor: '#f4b751' }]}>
+      <View style={[styles.section, { backgroundColor: '#4b4949' }]}>
         <View style={styles.sectionHeader}>
-          <MaterialIcons name="verified" size={28} color="#e23b10" />
-          <Text style={[styles.sectionTitle, { color: '#e23b10' }]}>A Solução FireAway</Text>
+          <MaterialIcons name="verified" size={28} color="#6db913" />
+          <Text style={[styles.sectionTitle, { color: '#6db913' }]}>A Solução FireAway</Text>
         </View>
-        <Text style={[styles.sectionText, { color: '#000' }]}>
+        <Text style={[styles.sectionText, { color: '#fff' }]}>
           Sistema tecnológico integrado que combina:
         </Text>
         
         <View style={styles.solutionIcons}>
           <View style={styles.iconItem}>
-            <MaterialCommunityIcons name="chip" size={30} color="#e23b10" />
+            <MaterialCommunityIcons name="chip" size={30} color="#6db913" />
             <Text style={styles.iconText}>Sensores IoT</Text>
           </View>
           <View style={styles.iconItem}>
-            <MaterialCommunityIcons name="drone" size={30} color="#e23b10" />
+            <MaterialCommunityIcons name="drone" size={30} color="#6db913" />
             <Text style={styles.iconText}>Drones</Text>
           </View>
           <View style={styles.iconItem}>
-            <MaterialIcons name="phone-android" size={30} color="#e23b10" />
+            <MaterialIcons name="phone-android" size={30} color="#6db913" />
             <Text style={styles.iconText}>App Mobile</Text>
           </View>
           <View style={styles.iconItem}>
-            <MaterialIcons name="dashboard" size={30} color="#e23b10" />
+            <MaterialIcons name="dashboard" size={30} color="#6db913" />
             <Text style={styles.iconText}>Dashboard</Text>
           </View>
         </View>
@@ -74,7 +74,7 @@ export default function TelaInicio() {
 
       <View style={styles.section}>
         <View style={styles.sectionHeader}>
-          <MaterialCommunityIcons name="cogs" size={28} color="#e23b10" />
+          <MaterialCommunityIcons name="cogs" size={28} color="#6db913" />
           <Text style={styles.sectionTitle}>Como Funciona</Text>
         </View>
         
@@ -143,7 +143,7 @@ export default function TelaInicio() {
 
       <View style={[styles.section, { backgroundColor: '#f8f8f8' }]}>
         <View style={styles.sectionHeader}>
-          <MaterialCommunityIcons name="developer-board" size={28} color="#e23b10" />
+          <MaterialCommunityIcons name="developer-board" size={28} color="#6db913" />
           <Text style={styles.sectionTitle}>Estrutura Técnica</Text>
         </View>
         
@@ -159,7 +159,7 @@ export default function TelaInicio() {
           </Text>
         </View>
         
-        <View style={[styles.techCard, { backgroundColor: '#f4b751' }]}>
+        <View style={[styles.techCard, { backgroundColor: '#4b4949' }]}>
           <View style={styles.techHeader}>
             <MaterialIcons name="phone-iphone" size={24} color="#fff" />
             <Text style={styles.techTitle}>App Mobile (React Native)</Text>
@@ -188,7 +188,7 @@ export default function TelaInicio() {
 
       <View style={styles.section}>
         <View style={styles.sectionHeader}>
-          <MaterialCommunityIcons name="earth" size={28} color="#e23b10" />
+          <MaterialCommunityIcons name="earth" size={28} color="#6db913" />
           <Text style={styles.sectionTitle}>Impacto Esperado</Text>
         </View>
         
@@ -216,9 +216,9 @@ export default function TelaInicio() {
         </View>
       </View>
 
-      <View style={[styles.section, { backgroundColor: '#e23b10', paddingBottom: 40 }]}>
+      <View style={[styles.section, { backgroundColor: '#4b4949', paddingBottom: 40 }]}>
         <View style={styles.sectionHeader}>
-          <MaterialIcons name="flag" size={28} color="#fff" />
+          <MaterialIcons name="flag" size={28} color="#6db913" />
           <Text style={[styles.sectionTitle, { color: '#fff' }]}>Conclusão</Text>
         </View>
         <Text style={[styles.sectionText, { color: '#fff', textAlign: 'center' }]}>
@@ -243,7 +243,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 40,
     paddingHorizontal: 20,
-    backgroundColor: '#e23b10',
+    backgroundColor: '#4b4949',
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
   },
@@ -262,7 +262,7 @@ const styles = StyleSheet.create({
   heroDivider: {
     height: 4,
     width: 100,
-    backgroundColor: '#f4b751',
+    backgroundColor: '#6db913',
     marginTop: 20,
     borderRadius: 2,
   },
@@ -282,7 +282,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   sectionText: {
-    fontSize: 16,
+    fontSize: 18,
     color: '#555',
     lineHeight: 24,
     marginBottom: 15,
@@ -295,7 +295,7 @@ const styles = StyleSheet.create({
   },
   problemCard: {
     width: '48%',
-    backgroundColor: '#fff',
+    backgroundColor: '#c6c6c6',
     borderRadius: 12,
     padding: 15,
     marginBottom: 15,
@@ -307,7 +307,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   problemText: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#333',
     textAlign: 'center',
     marginTop: 8,
@@ -325,8 +325,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   iconText: {
-    fontSize: 14,
-    color: '#e23b10',
+    fontSize: 16,
+    color: '#fff',
     fontWeight: 'bold',
     marginTop: 8,
     textAlign: 'center',
@@ -342,7 +342,7 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     borderRadius: 15,
-    backgroundColor: '#e23b10',
+    backgroundColor: '#6db913',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 15,
@@ -356,18 +356,18 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   stepTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
-    color: '#e23b10',
+    color: '#6db913',
     marginBottom: 5,
   },
   stepText: {
-    fontSize: 14,
-    color: '#555',
+    fontSize: 18,
+    color: '#000',
     lineHeight: 20,
   },
   techCard: {
-    backgroundColor: '#e23b10',
+    backgroundColor: '#6db913',
     borderRadius: 12,
     padding: 15,
     marginBottom: 15,
@@ -401,28 +401,28 @@ const styles = StyleSheet.create({
   },
   impactCard: {
     width: '48%',
-    backgroundColor: '#fff',
+    backgroundColor: '#4b4949',
     borderRadius: 12,
     padding: 15,
     marginBottom: 15,
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#f4b751',
+    borderWidth: 3,
+    borderColor: '#6db913',
   },
   impactEmoji: {
     fontSize: 28,
     marginBottom: 5,
   },
   impactArea: {
-    fontSize: 16,
+    fontSize: 17,
     fontWeight: 'bold',
-    color: '#e23b10',
+    color: '#fff',
     marginBottom: 5,
     textAlign: 'center',
   },
   impactBenefit: {
-    fontSize: 13,
-    color: '#555',
+    fontSize: 15,
+    color: '#fff',
     textAlign: 'center',
     lineHeight: 18,
   },
@@ -430,7 +430,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f4b751',
+    backgroundColor: '#6db913',
     paddingVertical: 12,
     paddingHorizontal: 25,
     borderRadius: 25,

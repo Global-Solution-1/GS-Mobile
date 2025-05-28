@@ -24,7 +24,7 @@ function CustomDrawerContent(props) {
       <DrawerItem
         label="Início"
         icon={() => (
-          <Ionicons name="flame-outline" size={24} color="#e23b10" style={{ marginRight: 10 }} />
+          <Ionicons name="earth-outline" size={24} color="#6db913" style={{ marginRight: 10 }} />
         )}
         onPress={() => navigation.navigate('TelaInicial')}
         labelStyle={styles.drawerLabel}
@@ -73,28 +73,28 @@ export default function App() {
 
 const styles = StyleSheet.create({
   drawerContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: '#4b4949',
   },
   drawerHeader: {
     padding: 20,
     alignItems: 'center',
     borderBottomWidth: 1,
-    borderBottomColor: '#f4b751',
+    borderBottomColor: '#fff',
   },
   userIconContainer: {
-    backgroundColor: '#e23b10',
+    backgroundColor: '#6db913',
     width: 80,
     height: 80,
     borderRadius: 40,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: '#e23b10',
+    borderColor: '#6db913',
     marginBottom: 10,
   },
   drawerTitle: {
     fontSize: 22,
-    color: '#000',
+    color: '#fff',
     marginTop: 10,
     letterSpacing: 0.5,
   },

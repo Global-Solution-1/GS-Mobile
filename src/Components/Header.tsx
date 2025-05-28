@@ -88,7 +88,7 @@ export default function Header({ navigation }) {
                   navigation.navigate('TelaLogin');
                 }}
               >
-                <Ionicons name="log-in-outline" size={20} color="#e23b10" />
+                <Ionicons name="log-in-outline" size={27} color="#6db913" />
                 <Text style={styles.dropdownText}>Login</Text>
               </TouchableOpacity>
             </Animated.View>
@@ -101,7 +101,7 @@ export default function Header({ navigation }) {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#4b4949',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     width: 27,
   },
   menuIcon: {
-    color: '#e23b10',
+    color: '#6db913',
   },
   logoContainer: {
     flex: 1,
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     height: 70,
-    width: 140,
+    width: 220,
   },
   rightIcons: {
     width: 27,
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
   dropdownText: {
     color: '#333333',
     marginLeft: 12,
-    fontSize: 16,
+    fontSize: 19,
     fontWeight: '500',
   },
 });
