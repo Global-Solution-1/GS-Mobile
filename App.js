@@ -8,6 +8,11 @@ import Header from './src/Components/Header';
 import TelaInicial from './src/Screens/TelaInicial';
 import TelaLogin from './src/Screens/TelaLogin';
 import TelaCadastroU from './src/Screens/TelaCadastroU';
+import TelaADM from './src/Screens/TelaADM';
+import TelaUsuario from './src/Screens/TelaUsuario';
+import TelaBombeiro from './src/Screens/TelaBombeiro';
+
+
 
 const Drawer = createDrawerNavigator();
 
@@ -32,6 +37,38 @@ function CustomDrawerContent(props) {
         labelStyle={styles.drawerLabel}
         style={styles.drawerItem}
       />
+
+      <DrawerItem
+        label="Tela ADM"
+        icon={() => (
+          <Ionicons name="earth-outline" size={24} color="#6db913" style={{ marginRight: 10 }} />
+        )}
+        onPress={() => navigation.navigate('TelaADM')}
+        labelStyle={styles.drawerLabel}
+        style={styles.drawerItem}
+      />
+
+      <DrawerItem
+        label="Tela Usuario"
+        icon={() => (
+          <Ionicons name="earth-outline" size={24} color="#6db913" style={{ marginRight: 10 }} />
+        )}
+        onPress={() => navigation.navigate('TelaUsuario')}
+        labelStyle={styles.drawerLabel}
+        style={styles.drawerItem}
+      />
+
+      <DrawerItem
+        label="Tela Bombeiro"
+        icon={() => (
+          <Ionicons name="earth-outline" size={24} color="#6db913" style={{ marginRight: 10 }} />
+        )}
+        onPress={() => navigation.navigate('TelaBombeiro')}
+        labelStyle={styles.drawerLabel}
+        style={styles.drawerItem}
+      />
+
+
     </DrawerContentScrollView>
   );
 }
@@ -78,6 +115,30 @@ function MainNavigator() {
         component={TelaCadastroU}
         options={{
           title: 'Cadastro Usuario',
+        }}
+      />
+
+      <Drawer.Screen
+        name="TelaADM"
+        component={TelaADM}
+        options={{
+          title: 'Tela administrador',
+        }}
+      />
+
+      <Drawer.Screen
+        name="TelaUsuario"
+        component={TelaUsuario}
+        options={{
+          title: 'Tela Usuario',
+        }}
+      />
+
+      <Drawer.Screen
+        name="TelaBombeiro"
+        component={TelaBombeiro}
+        options={{
+          title: 'Tela Bombeiro',
         }}
       />
     </Drawer.Navigator>
