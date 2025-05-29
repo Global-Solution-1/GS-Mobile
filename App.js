@@ -6,6 +6,8 @@ import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 
 import Header from './src/Components/Header';
 import TelaInicial from './src/Screens/TelaInicial';
+import TelaLogin from './src/Screens/TelaLogin';
+import TelaCadastroU from './src/Screens/TelaCadastroU';
 
 const Drawer = createDrawerNavigator();
 
@@ -57,6 +59,25 @@ function MainNavigator() {
           drawerIcon: ({ color }) => (
             <Ionicons name="home" size={24} color={color} />
           )
+        }}
+      />
+
+      <Drawer.Screen
+        name="TelaLogin"
+        component={TelaLogin}
+        options={{
+          title: 'Login',
+          drawerIcon: ({ color }) => (
+            <Ionicons name="log-in-outline" size={27} color="#6db913" />
+          )
+        }}
+      />
+
+      <Drawer.Screen
+        name="TelaCadastroU"
+        component={TelaCadastroU}
+        options={{
+          title: 'Cadastro Usuario',
         }}
       />
     </Drawer.Navigator>
