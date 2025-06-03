@@ -141,50 +141,7 @@ export default function TelaInicio() {
         </View>
       </View>
 
-      <View style={[styles.section, { backgroundColor: '#f8f8f8' }]}>
-        <View style={styles.sectionHeader}>
-          <MaterialCommunityIcons name="developer-board" size={28} color="#6db913" />
-          <Text style={styles.sectionTitle}>Estrutura Técnica</Text>
-        </View>
-        
-        <View style={styles.techCard}>
-          <View style={styles.techHeader}>
-            <MaterialCommunityIcons name="api" size={24} color="#fff" />
-            <Text style={styles.techTitle}>API REST com Java + Oracle</Text>
-          </View>
-          <Text style={styles.techText}>
-            • Desenvolvido com Java{"\n"}
-            • Banco de Dados proprio da FireAway{"\n"}
-            • Arquitetura com boas práticas
-          </Text>
-        </View>
-        
-        <View style={[styles.techCard, { backgroundColor: '#4b4949' }]}>
-          <View style={styles.techHeader}>
-            <MaterialIcons name="phone-iphone" size={24} color="#fff" />
-            <Text style={styles.techTitle}>App Mobile (React Native)</Text>
-          </View>
-          <Text style={styles.techText}>
-            • App simples e intruitivo{"\n"}
-            • Status de emergência{"\n"}
-            • Design com cores temáticas{"\n"}
-            • Exibição de alertas e rotas seguras
-          </Text>
-        </View>
-        
-        <View style={styles.techCard}>
-          <View style={styles.techHeader}>
-            <MaterialCommunityIcons name="chip" size={24} color="#fff" />
-            <Text style={styles.techTitle}>Simulação IoT</Text>
-          </View>
-          <Text style={styles.techText}>
-            • ESP32 com sensores simulados{"\n"}
-            • Envio de dados por Serial/MQTT{"\n"}
-            • Simulação de alerta{"\n"}
-            • Movimentação de drones
-          </Text>
-        </View>
-      </View>
+      
 
       <View style={styles.section}>
         <View style={styles.sectionHeader}>
