@@ -11,7 +11,9 @@ import TelaCadastroU from './src/Screens/TelaCadastroU';
 import TelaADM from './src/Screens/TelaADM';
 import TelaUsuario from './src/Screens/TelaUsuario';
 import TelaBombeiro from './src/Screens/TelaBombeiro';
-
+import TelaInfosSen from './src/Screens/TelaInfosSen';
+import TelaInfosUs from './src/Screens/TelaInfosUs';
+import TelaMensagensADM from './src/Screens/TelaMensagensADM';
 
 
 const Drawer = createDrawerNavigator();
@@ -64,6 +66,36 @@ function CustomDrawerContent(props) {
           <Ionicons name="earth-outline" size={24} color="#6db913" style={{ marginRight: 10 }} />
         )}
         onPress={() => navigation.navigate('TelaBombeiro')}
+        labelStyle={styles.drawerLabel}
+        style={styles.drawerItem}
+      />
+
+      <DrawerItem
+        label="Sensores"
+        icon={() => (
+          <Ionicons name="options-outline" size={24} color="#6db913" style={{ marginRight: 10 }} />
+        )}
+        onPress={() => navigation.navigate('TelaInfosSen')}
+        labelStyle={styles.drawerLabel}
+        style={styles.drawerItem}
+      />
+
+      <DrawerItem
+        label="Usuarios"
+        icon={() => (
+          <Ionicons name="person-outline" size={24} color="#6db913" style={{ marginRight: 10 }} />
+        )}
+        onPress={() => navigation.navigate('TelaInfosUs')}
+        labelStyle={styles.drawerLabel}
+        style={styles.drawerItem}
+      />
+
+      <DrawerItem
+        label="Mensagens ADM"
+        icon={() => (
+          <Ionicons name="mail-outline" size={24} color="#6db913" style={{ marginRight: 10 }} />
+        )}
+        onPress={() => navigation.navigate('TelaMensagensADM')}
         labelStyle={styles.drawerLabel}
         style={styles.drawerItem}
       />
@@ -141,6 +173,35 @@ function MainNavigator() {
           title: 'Tela Bombeiro',
         }}
       />
+
+      <Drawer.Screen
+        name="TelaInfosSen"
+        component={TelaInfosSen}
+        options={{
+          title: 'Gerenciar Sensores',
+        }}
+      />
+
+      <Drawer.Screen
+        name="TelaInfosUs"
+        component={TelaInfosUs}
+        options={{
+          title: 'Gerenciar Sensores',
+        }}
+      />
+
+      <Drawer.Screen
+        name="TelaMensagensADM"
+        component={TelaMensagensADM}
+        options={{
+          title: 'Mensagens ADM',
+          drawerIcon: ({ color }) => (
+            <Ionicons name="mail-outline" size={24} color={color} />
+          ),
+        }}
+      />
+
+
     </Drawer.Navigator>
   );
 }
