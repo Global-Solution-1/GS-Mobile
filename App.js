@@ -13,8 +13,10 @@ import TelaUsuario from './src/Screens/TelaUsuario';
 import TelaBombeiro from './src/Screens/TelaBombeiro';
 import TelaInfosSen from './src/Screens/TelaInfosSen';
 import TelaInfosUs from './src/Screens/TelaInfosUs';
-import TelaMensagensADM from './src/Screens/TelaMensagensADM';
-
+import TelaMensagens from './src/Screens/TelaMensagensADM';
+import TelaListaAvisos from './src/Screens/TelaListaAvisos';
+import TelaGerenciamento from './src/Screens/TelaGerenciamento';
+import TelaListaAlertas from './src/Screens/TelaListaAlertas';
 
 const Drawer = createDrawerNavigator();
 
@@ -91,15 +93,44 @@ function CustomDrawerContent(props) {
       />
 
       <DrawerItem
-        label="Mensagens ADM"
+        label="Mensagens"
         icon={() => (
           <Ionicons name="mail-outline" size={24} color="#6db913" style={{ marginRight: 10 }} />
         )}
-        onPress={() => navigation.navigate('TelaMensagensADM')}
+        onPress={() => navigation.navigate('TelaMensagens')}
         labelStyle={styles.drawerLabel}
         style={styles.drawerItem}
       />
 
+      <DrawerItem
+        label="Alertas"
+        icon={() => (
+          <Ionicons name="mail-outline" size={24} color="#6db913" style={{ marginRight: 10 }} />
+        )}
+        onPress={() => navigation.navigate('TelaListaAvisos')}
+        labelStyle={styles.drawerLabel}
+        style={styles.drawerItem}
+      />
+
+      <DrawerItem
+        label="Gerenciamento"
+        icon={() => (
+          <Ionicons name="mail-outline" size={24} color="#6db913" style={{ marginRight: 10 }} />
+        )}
+        onPress={() => navigation.navigate('TelaGerenciamento')}
+        labelStyle={styles.drawerLabel}
+        style={styles.drawerItem}
+      />
+
+      <DrawerItem
+        label="Listas Alertas"
+        icon={() => (
+          <Ionicons name="mail-outline" size={24} color="#6db913" style={{ marginRight: 10 }} />
+        )}
+        onPress={() => navigation.navigate('TelaListaAlertas')}
+        labelStyle={styles.drawerLabel}
+        style={styles.drawerItem}
+      />
 
     </DrawerContentScrollView>
   );
@@ -191,13 +222,34 @@ function MainNavigator() {
       />
 
       <Drawer.Screen
-        name="TelaMensagensADM"
-        component={TelaMensagensADM}
+        name="TelaMensagens"
+        component={TelaMensagens}
         options={{
-          title: 'Mensagens ADM',
-          drawerIcon: ({ color }) => (
-            <Ionicons name="mail-outline" size={24} color={color} />
-          ),
+          title: 'Mensagens',
+        }}
+      />
+
+      <Drawer.Screen
+        name="TelaListaAvisos"
+        component={TelaListaAvisos}
+        options={{
+          title: 'Avisos',
+        }}
+      />
+
+      <Drawer.Screen
+        name="TelaGerenciamento"
+        component={TelaGerenciamento}
+        options={{
+          title: 'Tela Gerenciamento',
+        }}
+      />
+
+      <Drawer.Screen
+        name="TelaListaAlertas"
+        component={TelaListaAlertas}
+        options={{
+          title: 'Lista de Alertas Bombeiros',
         }}
       />
 
