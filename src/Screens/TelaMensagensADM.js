@@ -7,7 +7,7 @@ export default function TelaMensagens() {
   const [conteudo, setConteudo] = useState('');
   const [mensagensRecebidas, setMensagensRecebidas] = useState([]);
 
-  const API_BASE = 'http://localhost:8080';
+  const API_BASE = 'https://gs-fireawaysystem.onrender.com';
 
   useEffect(() => {
     carregarMensagensRecebidas();
@@ -153,19 +153,20 @@ useEffect(() => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4b4949',
+    backgroundColor: '#4b4949'
   },
   content: {
     alignItems: 'center',
-    padding: 20,
+    padding: 20
   },
   titulo: {
-    fontSize: 14,
+    fontSize: 18,
+    fontWeight: 'bold',
     color: '#fff',
     marginBottom: 6,
   },
   subtitulo: {
-    fontSize: 12,
+    fontSize: 14,
     color: '#fff',
     marginBottom: 30,
   },
@@ -177,9 +178,10 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   cardPequenoTitulo: {
-    fontSize: 15,
+    fontSize: 16,
+    fontWeight: 'bold',
     color: '#6db913',
-    marginBottom: 6,
+    marginBottom: 10,
   },
   cardPequenoTexto: {
     color: '#fff',
@@ -190,6 +192,7 @@ const styles = StyleSheet.create({
     width: '85%',
     borderRadius: 14,
     padding: 20,
+    marginBottom: 70,
     justifyContent: 'space-between',
   },
   cardTitulo: {

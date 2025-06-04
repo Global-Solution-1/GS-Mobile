@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, ActivityIndicator, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const API_URL = 'http://localhost:8080/alertas/proximos';
+const API_URL = 'https://gs-fireawaysystem.onrender.com/alertas/proximos';
 
 export default function TelaListaAvisos() {
   const [alertas, setAlertas] = useState([]);

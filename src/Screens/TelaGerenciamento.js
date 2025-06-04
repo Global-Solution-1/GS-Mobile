@@ -7,7 +7,7 @@ export default function TelaGerenciamento() {
     const [monitoramentos, setMonitoramentos] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const API_BASE = 'http://192.168.15.65:8080';
+    const API_BASE = 'https://gs-fireawaysystem.onrender.com';
 
     useEffect(() => {
         carregarDados();

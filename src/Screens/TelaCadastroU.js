@@ -14,7 +14,7 @@ export default function TelaCadastroU({ navigation }) {
 
     const realizarCadastro = async () => {
         try {
-            const resposta = await fetch('http://localhost:8080/usuario/cadastro/morador', {
+            const resposta = await fetch('https://gs-fireawaysystem.onrender.com/usuario/cadastro/morador', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

@@ -173,6 +173,13 @@ export default function TelaInicio() {
         </View>
       </View>
 
+      <View style={styles.section}>
+        <View style={styles.sectionHeader}>
+            <Text>Proteção da vida animal</Text>
+        </View>
+
+      </View>
+
       
 
       <View style={[styles.section, { backgroundColor: '#577235', paddingBottom: 40 }]}>

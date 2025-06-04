@@ -7,7 +7,7 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ionicons } from '@expo/vector-icons';
 
-const API_BASE = 'http://localhost:8080';
+const API_BASE = 'https://gs-fireawaysystem.onrender.com';
 
 export default function TelaInfosSen() {
   const [sensores, setSensores] = useState([]);
@@ -336,7 +336,7 @@ const styles = StyleSheet.create({
   content: { paddingBottom: 50, paddingTop: 20 },
   titulo: { fontSize: 18, fontWeight: 'bold', color: '#000', marginBottom: 20, textAlign: 'center' },
   card: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#577235',
     borderRadius: 8,
     padding: 15,
     marginBottom: 15,
@@ -377,7 +377,7 @@ const styles = StyleSheet.create({
     top: 50,
     left: 10,
     right: 10,
-    backgroundColor: '#fff',
+    backgroundColor: '#577235',
     borderRadius: 10,
     padding: 15,
     elevation: 10,

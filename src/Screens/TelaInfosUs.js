@@ -13,7 +13,7 @@ export default function TelaInfosUs() {
     nome: '', email: '', cpf: '', senha: '', telefone: '', perfil: 'ADMINISTRADOR' 
   });
 
-  const API_BASE = 'http://localhost:8080';
+  const API_BASE = 'https://gs-fireawaysystem.onrender.com';
 
   useEffect(() => {
     carregarUsuarios();
