@@ -17,6 +17,8 @@ import TelaMensagens from './src/Screens/TelaMensagensADM';
 import TelaInfosUs from './src/Screens/TelaInfosUs';
 import TelaInfosSen from './src/Screens/TelaInfosSen';
 import TelaListaAvisos from './src/Screens/TelaListaAvisos';
+import TelaGerenciamento from './src/Screens/TelaGerenciamento';
+import TelaListaAlertas from './src/Screens/TelaListaAlertas';
 
 const Drawer = createDrawerNavigator();
 
@@ -42,8 +44,11 @@ export default function App() {
       screens.push({ name: 'TelaListaAvisos', component: TelaListaAvisos });
       screens.push({name: 'TelaMensagensADM', component: TelaMensagens});
     }
-    if (userType === 'bombeiro') {
+    if (userType === 'socorrista') {
       screens.push({ name: 'TelaSocorrista', component: TelaSocorrista });
+      screens.push({ name: 'TelaGerenciamento', component: TelaGerenciamento });
+      screens.push({ name: 'TelaListaAlertas', component: TelaListaAlertas });
+      screens.push({name: 'TelaMensagensADM', component: TelaMensagens});
     }
 
   

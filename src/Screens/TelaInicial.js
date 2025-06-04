@@ -16,7 +16,7 @@ export default function TelaInicio() {
 
       <View style={styles.section}>
         <View style={styles.sectionHeader}>
-          <Ionicons name="flame" size={28} color="#e23b10" />
+          <Ionicons name="flame" size={28} color="#6db913" />
           <Text style={styles.sectionTitle}>O Problema</Text>
         </View>
         <Text style={styles.sectionText}>
@@ -173,19 +173,13 @@ export default function TelaInicio() {
         </View>
       </View>
 
-      <View style={[styles.section, { backgroundColor: '#4b4949', paddingBottom: 40 }]}>
+      
+
+      <View style={[styles.section, { backgroundColor: '#577235', paddingBottom: 40 }]}>
         <View style={styles.sectionHeader}>
-          <MaterialIcons name="flag" size={28} color="#6db913" />
-          <Text style={[styles.sectionTitle, { color: '#fff' }]}>Conclusão</Text>
+          
         </View>
-        <Text style={[styles.sectionText, { color: '#fff', textAlign: 'center' }]}>
-          O FireAway combina hardware, software e empatia para enfrentar um dos maiores desafios ambientais do mundo moderno, levando inteligência, agilidade e preservação para as florestas brasileiras e além.
-        </Text>
-        
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Saiba Mais</Text>
-          <MaterialIcons name="arrow-forward" size={20} color="#fff" />
-        </TouchableOpacity>
+       
       </View>
     </ScrollView>
   );
@@ -230,16 +224,17 @@ const styles = StyleSheet.create({
   sectionHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 25,
+    marginTop: 12
   },
   sectionTitle: {
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: 'bold',
     marginLeft: 10,
     color: '#333',
   },
   sectionText: {
-    fontSize: 18,
+    fontSize: 14,
     color: '#555',
     lineHeight: 24,
     marginBottom: 15,
@@ -264,11 +259,12 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   problemText: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#333',
     textAlign: 'center',
     marginTop: 8,
     fontWeight: '500',
+    width: 130
   },
   solutionIcons: {
     flexDirection: 'row',
@@ -282,7 +278,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   iconText: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#fff',
     fontWeight: 'bold',
     marginTop: 8,
@@ -313,13 +309,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   stepTitle: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#6db913',
     marginBottom: 5,
   },
   stepText: {
-    fontSize: 18,
+    fontSize: 14,
     color: '#000',
     lineHeight: 20,
   },
@@ -340,7 +336,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   techTitle: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
     color: '#fff',
     marginLeft: 10,
@@ -371,14 +367,14 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   impactArea: {
-    fontSize: 17,
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#fff',
     marginBottom: 5,
     textAlign: 'center',
   },
   impactBenefit: {
-    fontSize: 15,
+    fontSize: 14,
     color: '#fff',
     textAlign: 'center',
     lineHeight: 18,

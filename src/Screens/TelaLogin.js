@@ -1,56 +1,62 @@
 import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Image, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { CommonActions } from '@react-navigation/native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function TelaLogin({ navigation, setUserType }) {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const [mostrarSenha, setMostrarSenha] = useState(false);
 
   const realizarLogin = async () => {
-  try {
-    const resposta = await fetch('http://localhost:8080/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, senha }),
-    });
+    try {
+      const resposta = await fetch('http://localhost:8080/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, senha }),
+      });
 
-    if (resposta.ok) {
-      const dados = await resposta.json();
+      const respostaTexto = await resposta.text();
 
-      const tipoNormalizado = dados.perfil.toLowerCase().includes('administrador') ? 'admin' :
-                              dados.perfil.toLowerCase().includes('morador') ? 'user' :
-                              dados.perfil.toLowerCase().includes('socorrista') ? 'bombeiro' : null;
-
-      await AsyncStorage.setItem('token', dados.token);
-      await AsyncStorage.setItem('perfil', tipoNormalizado);
-
-      setUserType(tipoNormalizado);
-
-      setEmail('');
-      setSenha('');
-
-      Alert.alert('Sucesso', 'Login realizado com sucesso!');
-
-      navigation.navigate('TelaInicial');
-
-    } else {
-      let mensagemErro = 'Falha no login';
+      let dados;
       try {
-        const dadosErro = await resposta.json();
-        mensagemErro = dadosErro.mensagem || dadosErro.error || mensagemErro;
-      } catch {
-        const erroTexto = await resposta.text();
-        if (erroTexto) mensagemErro = erroTexto;
+        dados = JSON.parse(respostaTexto);
+      } catch (e) {
+        dados = null;
       }
-      Alert.alert('Erro', mensagemErro);
-    }
-  } catch (erro) {
-    console.error(erro);
-    Alert.alert('Erro', 'Não foi possível conectar ao servidor.');
-  }
-};
 
+      if (resposta.ok) {
+        const tipoNormalizado = dados.perfil.toLowerCase().includes('administrador') ? 'admin' :
+                                dados.perfil.toLowerCase().includes('morador') ? 'user' :
+                                dados.perfil.toLowerCase().includes('socorrista') ? 'socorrista' : null;
+
+        await AsyncStorage.setItem('token', dados.token);
+        await AsyncStorage.setItem('perfil', tipoNormalizado);
+        await AsyncStorage.setItem('nome', dados.nome);
+const nomeSalvo = await AsyncStorage.getItem('nome');
+console.log('Nome salvo no AsyncStorage:', nomeSalvo);
+
+
+        setUserType(tipoNormalizado);
+        setEmail('');
+        setSenha('');
+
+        Alert.alert('Sucesso', 'Login realizado com sucesso!');
+        navigation.navigate('TelaInicial', { nome: dados.nome });
+      } else {
+        let mensagemErro = 'Falha no login';
+        if (dados?.mensagem) mensagemErro = dados.mensagem;
+        else if (dados?.error) mensagemErro = dados.error;
+        else if (respostaTexto) mensagemErro = respostaTexto;
+
+        Alert.alert('Erro', mensagemErro);
+      }
+
+    } catch (erro) {
+      console.error(erro);
+      Alert.alert('Erro', 'Não foi possível conectar ao servidor.');
+    }
+  };
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
@@ -70,14 +76,26 @@ export default function TelaLogin({ navigation, setUserType }) {
           </View>
           <View style={styles.inputContainer2}>
             <Text style={styles.label}>Senha</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Digite sua senha"
-              placeholderTextColor="#888"
-              value={senha}
-              onChangeText={setSenha}
-              secureTextEntry
-            />
+            <View style={{ position: 'relative', justifyContent: 'center' }}>
+              <TextInput
+                style={[styles.input, { paddingRight: 40 }]}
+                placeholder="Digite sua senha"
+                placeholderTextColor="#888"
+                value={senha}
+                onChangeText={setSenha}
+                secureTextEntry={!mostrarSenha}
+              />
+              <TouchableOpacity
+                onPress={() => setMostrarSenha(!mostrarSenha)}
+                style={{ position: 'absolute', right: 10, top: '50%', transform: [{ translateY: -12 }] }}
+              >
+                <Ionicons
+                  name={mostrarSenha ? 'eye-off' : 'eye'}
+                  size={24}
+                  color="#6db913"
+                />
+              </TouchableOpacity>
+            </View>
           </View>
           <TouchableOpacity style={styles.botao} onPress={realizarLogin}>
             <Text style={styles.textoBotao}>Acessar</Text>

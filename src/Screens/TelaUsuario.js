@@ -1,31 +1,54 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function TelaUsuario() {
+export default function TelaUsuario({ navigation, route }) {
+  const [nomeUsuario, setNomeUsuario] = useState(null);
+
+  useEffect(() => {
+    const obterNome = async () => {
+      try {
+        let nome = route?.params?.nome;
+        if (!nome) {
+          nome = await AsyncStorage.getItem('nome');
+        }
+        setNomeUsuario(nome || 'Usuário');
+      } catch (e) {
+        setNomeUsuario('Usuário');
+      }
+    };
+
+    obterNome();
+  }, [route?.params?.nome]);
+
+  if (nomeUsuario === null) {
+    return (
+      <View style={{ flex:1, justifyContent:'center', alignItems:'center' }}>
+        <Text style={{ color: '#fff' }}>Carregando...</Text>
+      </View>
+    );
+  }
+
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      {/* Saudação */}
       <View style={styles.welcomeBox}>
         <Ionicons name="person" size={20} color="#6db913" style={{ marginRight: 8 }} />
-        <Text style={styles.welcomeText}>Olá _____ !</Text>
+        <Text style={styles.welcomeText}>Olá {nomeUsuario}!</Text>
       </View>
 
-      {/* Pergunta */}
       <Text style={styles.subText}>O que você quer fazer hoje?</Text>
 
-      {/* Botões de ação */}
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TelaListaAvisos')}>
         <Ionicons name="alert-circle-outline" size={20} color="#fff" style={styles.icon} />
         <Text style={styles.buttonText}>Verificar alertas na sua região</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TelaMensagensADM')}>
         <MaterialIcons name="chat-bubble-outline" size={20} color="#fff" style={styles.icon} />
         <Text style={styles.buttonText}>Enviar mensagens para usuários</Text>
       </TouchableOpacity>
 
-      {/* Mapa interativo */}
       <View style={styles.mapBox}>
         <Text style={styles.mapText}>Mapa interativo</Text>
       </View>
@@ -53,15 +76,11 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     backgroundColor: 'transparent',
   },
-  welcomeText: {
-    color: '#6db913',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
+ welcomeText: { color: '#6db913', fontSize: 16, fontWeight: 'bold' },
   subText: {
     color: '#fff',
-    fontSize: 14,
-    marginBottom: 30,
+    marginBottom: 20,
+    fontSize: 15,
   },
   button: {
     backgroundColor: '#6db913',
@@ -73,14 +92,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 20,
   },
-  icon: {
-    marginRight: 10,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 14,
-    flexShrink: 1,
-  },
+  icon: { marginRight: 10 },
+  buttonText: { color: '#fff', fontSize: 14, flexShrink: 1 },
   mapBox: {
     backgroundColor: '#6db913',
     width: '95%',
@@ -90,8 +103,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  mapText: {
-    color: '#fff',
-    fontSize: 16,
-  },
+  mapText: { color: '#fff', fontSize: 16 }
 });

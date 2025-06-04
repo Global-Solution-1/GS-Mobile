@@ -29,7 +29,7 @@ const CustomDrawerContent = ({ navigation, userType, setUserType }) => {
         <Text style={styles.title}>
           {userType === 'admin' ? 'Administrador' :
             userType === 'user' ? 'Morador' :
-            userType === 'bombeiro' ? 'Socorrista' : 'Visitante'}
+            userType === 'socorrista' ? 'Socorrista' : 'Visitante'}
         </Text>
       </View>
 
@@ -100,13 +100,36 @@ const CustomDrawerContent = ({ navigation, userType, setUserType }) => {
 
       )}
 
-      {canAccess('bombeiro') && (
+      {canAccess('socorrista') && (
+        <>
         <DrawerItem
           label="Painel Socorrista"
           icon={() => <Ionicons name="medkit" size={24} color="#6db913" />}
           labelStyle={drawerLabelStyle}
           onPress={() => navigation.navigate('TelaSocorrista')}
         />
+        <DrawerItem
+          label="Acompanhar Sensores e Monitoramento"
+          icon={() => <Ionicons name="medkit" size={24} color="#6db913" />}
+          labelStyle={drawerLabelStyle}
+          onPress={() => navigation.navigate('TelaGerenciamento')}
+        />
+        <DrawerItem
+          label="Visualizar Alertas"
+          icon={() => <Ionicons name="medkit" size={24} color="#6db913" />}
+          labelStyle={drawerLabelStyle}
+          onPress={() => navigation.navigate('TelaListaAlertas')}
+        />
+        <DrawerItem
+          label="Enviar mensagens"
+          icon={() => <Ionicons name="medkit" size={24} color="#6db913" />}
+          labelStyle={drawerLabelStyle}
+          onPress={() => navigation.navigate('TelaMensagensADM')}
+        />
+
+        </>
+        
+
       )}
 
       {!userType && (
