@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import MapView, { Marker } from 'react-native-maps';
+import * as Location from 'expo-location';
 
 export default function TelaSocorrista({ navigation, route }) {
   const [nome, setNome] = useState('Socorrista');
+  const [location, setLocation] = useState(null);
+  const [permission, setPermission] = useState(null);
 
   useEffect(() => {
     const obterNome = async () => {
@@ -13,7 +17,7 @@ export default function TelaSocorrista({ navigation, route }) {
         if (!nomeObtido) {
           nomeObtido = await AsyncStorage.getItem('nome');
         }
-        setNome(nomeObtido || 'Usuário'); // <-- corrigido aqui
+        setNome(nomeObtido || 'Usuário');
       } catch (e) {
         setNome('Usuário');
       }
@@ -21,6 +25,17 @@ export default function TelaSocorrista({ navigation, route }) {
 
     obterNome();
   }, [route?.params?.nome]);
+
+  useEffect(() => {
+    (async () => {
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      setPermission(status);
+      if (status === 'granted') {
+        const loc = await Location.getCurrentPositionAsync({});
+        setLocation(loc.coords);
+      }
+    })();
+  }, []);
 
   if (!nome) {
     return (
@@ -50,7 +65,27 @@ export default function TelaSocorrista({ navigation, route }) {
       </TouchableOpacity>
 
       <View style={styles.mapBox}>
-        <Text style={styles.mapText}>Mapa interativo</Text>
+        {location ? (
+          <MapView
+            style={styles.map}
+            initialRegion={{
+              latitude: location.latitude,
+              longitude: location.longitude,
+              latitudeDelta: 0.01,
+              longitudeDelta: 0.01,
+            }}
+          >
+            <Marker
+              coordinate={{
+                latitude: location.latitude,
+                longitude: location.longitude,
+              }}
+              title="Você está aqui"
+            />
+          </MapView>
+        ) : (
+          <Text style={styles.mapText}>Carregando mapa...</Text>
+        )}
       </View>
     </ScrollView>
   );
@@ -105,12 +140,18 @@ const styles = StyleSheet.create({
     marginTop: 20,
     backgroundColor: '#222',
     borderRadius: 8,
-    padding: 15,
+    overflow: 'hidden',
     width: '100%',
+    height: 300,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   mapText: {
     color: '#fff',
     fontSize: 16,
+  },
+  map: {
+    width: '100%',
+    height: '100%',
   },
 });

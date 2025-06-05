@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import MapView, { Marker } from 'react-native-maps';
+import * as Location from 'expo-location';
 
 export default function TelaUsuario({ navigation, route }) {
   const [nomeUsuario, setNomeUsuario] = useState(null);
+  const [location, setLocation] = useState(null);
+  const [permission, setPermission] = useState(null);
 
   useEffect(() => {
     const obterNome = async () => {
@@ -22,9 +26,20 @@ export default function TelaUsuario({ navigation, route }) {
     obterNome();
   }, [route?.params?.nome]);
 
+  useEffect(() => {
+    (async () => {
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      setPermission(status);
+      if (status === 'granted') {
+        const userLocation = await Location.getCurrentPositionAsync({});
+        setLocation(userLocation.coords);
+      }
+    })();
+  }, []);
+
   if (nomeUsuario === null) {
     return (
-      <View style={{ flex:1, justifyContent:'center', alignItems:'center' }}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text style={{ color: '#fff' }}>Carregando...</Text>
       </View>
     );
@@ -50,7 +65,27 @@ export default function TelaUsuario({ navigation, route }) {
       </TouchableOpacity>
 
       <View style={styles.mapBox}>
-        <Text style={styles.mapText}>Mapa interativo</Text>
+        {location ? (
+          <MapView
+            style={styles.map}
+            initialRegion={{
+              latitude: location.latitude,
+              longitude: location.longitude,
+              latitudeDelta: 0.01,
+              longitudeDelta: 0.01,
+            }}
+          >
+            <Marker
+              coordinate={{
+                latitude: location.latitude,
+                longitude: location.longitude,
+              }}
+              title="Você está aqui"
+            />
+          </MapView>
+        ) : (
+          <Text style={styles.mapText}>Carregando mapa...</Text>
+        )}
       </View>
     </ScrollView>
   );
@@ -76,7 +111,11 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     backgroundColor: 'transparent',
   },
- welcomeText: { color: '#6db913', fontSize: 16, fontWeight: 'bold' },
+  welcomeText: {
+    color: '#6db913',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
   subText: {
     color: '#fff',
     marginBottom: 20,
@@ -92,8 +131,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 20,
   },
-  icon: { marginRight: 10 },
-  buttonText: { color: '#fff', fontSize: 14, flexShrink: 1 },
+  icon: {
+    marginRight: 10,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 14,
+    flexShrink: 1,
+  },
   mapBox: {
     backgroundColor: '#6db913',
     width: '95%',
@@ -102,6 +147,14 @@ const styles = StyleSheet.create({
     marginTop: 60,
     justifyContent: 'center',
     alignItems: 'center',
+    overflow: 'hidden',
   },
-  mapText: { color: '#fff', fontSize: 16 }
+  mapText: {
+    color: '#fff',
+    fontSize: 16,
+  },
+  map: {
+    width: '100%',
+    height: '100%',
+  },
 });
