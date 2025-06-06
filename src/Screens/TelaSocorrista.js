@@ -54,12 +54,12 @@ export default function TelaSocorrista({ navigation, route }) {
 
       <Text style={styles.subText}>O que você quer fazer hoje?</Text>
 
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TelaListaAvisos')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TelaListaAlertas')}>
         <Ionicons name="alert-circle-outline" size={20} color="#fff" style={styles.icon} />
         <Text style={styles.buttonText}>Verificar alertas na sua região</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TelaMensagensSocorrista')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TelaMensagensADM')}>
         <MaterialIcons name="chat-bubble-outline" size={20} color="#fff" style={styles.icon} />
         <Text style={styles.buttonText}>Enviar mensagens para usuários</Text>
       </TouchableOpacity>
