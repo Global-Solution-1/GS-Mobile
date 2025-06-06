@@ -40,6 +40,14 @@ const CustomDrawerContent = ({ navigation, userType, setUserType }) => {
         onPress={() => navigation.navigate('TelaInicial')}
       />
 
+      <DrawerItem
+        label="Equipe"
+        icon={() => <Ionicons name="people-circle-outline" size={24} color="#6db913" />}
+        labelStyle={drawerLabelStyle}
+        onPress={() => navigation.navigate('TelaEquipe')}
+      />
+
+
       {canAccess('admin') && (
         <>
           <DrawerItem

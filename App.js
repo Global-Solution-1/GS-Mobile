@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
 import TelaInicial from './src/Screens/TelaInicial';
 import TelaLogin from './src/Screens/TelaLogin';
 import TelaCadastroU from './src/Screens/TelaCadastroU';
@@ -19,6 +20,7 @@ import TelaInfosSen from './src/Screens/TelaInfosSen';
 import TelaListaAvisos from './src/Screens/TelaListaAvisos';
 import TelaGerenciamento from './src/Screens/TelaGerenciamento';
 import TelaListaAlertas from './src/Screens/TelaListaAlertas';
+import TelaEquipe from './src/Screens/TelaEquipe';
 
 const Drawer = createDrawerNavigator();
 
@@ -31,6 +33,7 @@ export default function App() {
       { name: 'TelaInicial', component: TelaInicial },
       { name: 'TelaLogin', component: (props) => <TelaLogin {...props} setUserType={setUserType} /> },
       { name: 'TelaCadastroU', component: TelaCadastroU },
+      { name: 'TelaEquipe', component: TelaEquipe },
     ];
 
     if (userType === 'admin') {
