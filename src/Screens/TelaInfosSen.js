@@ -7,7 +7,7 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ionicons } from '@expo/vector-icons';
 
-const API_BASE = 'https://gs-fireawaysystem.onrender.com';
+const API_BASE = 'API_JAVA';
 
 export default function TelaInfosSen() {
   const [sensores, setSensores] = useState([]);
@@ -325,7 +325,7 @@ export default function TelaInfosSen() {
         );
       })}
 
-      {/* Formulário de cadastro/edição */}
+      
       {renderForm()}
     </ScrollView>
   );
@@ -336,7 +336,7 @@ const styles = StyleSheet.create({
   content: { paddingBottom: 50, paddingTop: 20 },
   titulo: { fontSize: 18, fontWeight: 'bold', color: '#000', marginBottom: 20, textAlign: 'center' },
   card: {
-    backgroundColor: '#577235',
+    backgroundColor: '#B0F45E',
     borderRadius: 8,
     padding: 15,
     marginBottom: 15,

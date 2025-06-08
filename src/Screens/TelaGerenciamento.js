@@ -7,7 +7,7 @@ export default function TelaGerenciamento() {
     const [monitoramentos, setMonitoramentos] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const API_BASE = 'https://gs-fireawaysystem.onrender.com';
+    const API_BASE = 'API_JAVA';
 
     useEffect(() => {
         carregarDados();

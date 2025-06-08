@@ -174,20 +174,46 @@ export default function TelaInicio() {
       </View>
 
       <View style={styles.section}>
-        <View style={styles.sectionHeader}>
-            <Text>Proteção da vida animal</Text>
+        <View style={styles.sectionHeaderRight}>
+          <Text style={styles.sectionTitleRight}>Proteção da Vida Animal</Text>
         </View>
-
+        <View style={styles.contentWithImages}>
+          <View style={styles.imagesContainer}>
+            <Image
+              source={require('../../assets/tucano.png')}
+              style={styles.contentImage}
+            />
+            <Image
+              source={require('../../assets/tigre.png')}
+              style={styles.contentImage}
+            />
+          </View>
+          <Text style={styles.sectionTextRight}>
+            Inspirado no projeto Lion{"\n"}
+            Lights e em estudos{"\n"}
+            científicos, o FireAway utiliza{"\n"}
+            alertas sonoros e luminosos{"\n"}
+            para afastar animais de áreas{"\n"}
+            de risco, reduzindo os{"\n"}
+            impactos dos incêndios e{"\n"}
+            protegendo a fauna.
+          </Text>
+        </View>
       </View>
-
-      
-
       <View style={[styles.section, { backgroundColor: '#577235', paddingBottom: 40 }]}>
-        <View style={styles.sectionHeader}>
-          
+        <View style={styles.sectionHeaderFooter}>
+          <Image
+            source={require('../../assets/logo.png')}
+            style={[styles.logo, {marginBottom: 10 }]}
+            resizeMode="contain"
+          />
+ 
+          <Text style={styles.contactText}>Não hesite em nos contatar</Text>
+          <Text style={styles.contactInfo}>FireAway@hotmail.com</Text>
+          <Text style={styles.contactInfo}>0800-448-222</Text>
         </View>
-       
       </View>
+
     </ScrollView>
   );
 }
@@ -403,4 +429,58 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginRight: 8,
   },
+  sectionHeaderRight: {
+    alignItems: 'flex-end',
+    marginBottom: 15,
+    marginTop: 12,
+  },
+  sectionTitleRight: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#333',
+    textAlign: 'right',
+  },
+  contentWithImages: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+  },
+  imagesContainer: {
+    marginRight: 15,
+    alignItems: 'center',
+  },
+  contentImage: {
+    width: 120,
+    height: 80,
+    marginBottom: 5,
+    resizeMode: 'contain'
+  },
+  sectionTextRight: {
+    fontSize: 14,
+    color: '#555',
+    lineHeight: 24,
+    flex: 1,
+    textAlign: 'right',
+  },
+    logo: {
+    width: 180,
+    height: 50,
+  },
+  contactText: {
+    color: 'white',
+    fontSize: 16,
+    textAlign: 'left',
+    marginBottom: 15,
+    paddingLeft: 10
+  },
+  contactInfo: {
+    color: 'white',
+    fontSize: 14,
+    textAlign: 'left',
+    marginBottom: 15,
+    paddingLeft: 10
+  },
+  sectionHeaderFooter: {
+    width: '100%',
+    paddingLeft: 2
+  }
 });
