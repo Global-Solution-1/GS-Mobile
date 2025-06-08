@@ -13,7 +13,7 @@ export default function TelaInfosUs() {
     nome: '', email: '', cpf: '', senha: '', telefone: '', perfil: 'ADMINISTRADOR' 
   });
 
-  const API_BASE = 'https://gs-fireawaysystem.onrender.com';
+  const API_BASE = 'API_JAVA';
 
   useEffect(() => {
     carregarUsuarios();
@@ -183,7 +183,7 @@ export default function TelaInfosUs() {
     inputAndroid: pickerSelectStyles.input,
     iconContainer: pickerSelectStyles.iconContainer,
   }}
-  useNativeAndroidPickerStyle={false} // importantíssimo para customizar no Android
+  useNativeAndroidPickerStyle={false} 
   Icon={() => (
     <Ionicons name="chevron-down" size={20} color="#6db913" />
   )}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, ActivityIndicator, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const API_URL = 'https://gs-fireawaysystem.onrender.com/alertas/proximos';
+const API_URL = 'API_JAVA/alertas/proximos';
 
 export default function TelaListaAvisos() {
   const [alertas, setAlertas] = useState([]);
@@ -111,20 +111,22 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   titulo: {
-    fontSize: 16,
+    fontSize: 18,
     color: '#fff',
     marginBottom: 20,
+    fontWeight: 'bold'
   },
   inTitulo: {
-    fontSize: 13,
+    fontSize: 14,
     color: '#fff',
     marginBottom: 5,
   },
   inTituloAviso: {
-    fontSize: 14,
+    fontSize: 15,
     color: '#6db913',
     marginTop: 10,
-    marginBottom: 20
+    marginBottom: 20,
+    fontWeight: 'bold'
   },
   card: {
     backgroundColor: '#1E1E1E',

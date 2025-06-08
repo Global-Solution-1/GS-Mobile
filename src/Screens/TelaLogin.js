@@ -10,7 +10,7 @@ export default function TelaLogin({ navigation, setUserType }) {
 
   const realizarLogin = async () => {
     try {
-      const resposta = await fetch('https://gs-fireawaysystem.onrender.com/auth/login', {
+      const resposta = await fetch('API_JAVA/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, senha }),

@@ -7,7 +7,7 @@ export default function TelaMensagens() {
   const [conteudo, setConteudo] = useState('');
   const [mensagensRecebidas, setMensagensRecebidas] = useState([]);
 
-  const API_BASE = 'https://gs-fireawaysystem.onrender.com';
+  const API_BASE = 'API_JAVA';
 
   useEffect(() => {
     carregarMensagensRecebidas();

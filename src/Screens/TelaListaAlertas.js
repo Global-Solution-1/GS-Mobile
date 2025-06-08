@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, ActivityIndicator, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const API_BASE = 'https://gs-fireawaysystem.onrender.com/alertas/todos';
+const API_BASE = 'API_JAVA/alertas/todos';
 
 export default function TelaListaAlertas() {
   const [alertas, setAlertas] = useState([]);
